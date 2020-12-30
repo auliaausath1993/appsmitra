@@ -1,0 +1,37 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text="" (click)="back()"></ion-back-button>
+          </ion-buttons>
+    <ion-title>Verifikasi Hasil Kerjaan</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding ion-text-center">
+  <ion-row class="border-bottom">
+    <ion-col>
+      <p  class="title-body" style="padding-top: 10px;" *ngIf="croppedImagePath.length == 0">Upload Foto</p>
+      <div>
+        <ion-col size="3" *ngFor="let s of croppedImagePath">
+          <img  class="image" [src]="s" style="width: 80px;"/>
+        </ion-col>
+      </div>
+    </ion-col>    
+    <ion-col>
+      <ion-button class="ion-margin-top" shape="round" (click)="selectImage()">
+        Upload
+      </ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row class="border-bottom">
+    <ion-col size="12">
+        <p class="title-body">Tag Lokasi</p>
+        <ion-input placeholder="Ketikkan Lokasi" id="alamat" name="alamat"  [(ngModel)]="alamat" clearInput></ion-input>
+    </ion-col>
+  </ion-row>
+  <ion-row class="border-bottom" style="padding: 10px 0;">
+    <span>Note</span>
+    <span>Upload foto hasil pekerjaan anda minimal 2 foto. Beserta tag lokasi dimana foto diambil</span>
+    <span>Verifikasi ini untuk pembuktian anda jika terjadi komplain oleh pelanggan</span>
+  </ion-row>
+  <ion-button expand="block" shape="round" (click)="SaveFunc()">Verifikasi Lokasi</ion-button>
+</ion-content>

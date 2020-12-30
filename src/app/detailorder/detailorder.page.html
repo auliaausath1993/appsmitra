@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button text="" (click)="back()"></ion-back-button>
+          </ion-buttons>
+    <ion-title>{{service_type}}</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true">
+    <ion-row class="border-bottom">
+        <ion-col size="8">
+            <p class="title-small margin-remove">Nama Klien</p>
+            <p class="title margin-minus margin-remove" *ngIf="nama != null">{{nama}}</p>
+            <p class="title margin-minus margin-remove" *ngIf="nama == null">Sedang mencari partner</p>
+        </ion-col>
+        <ion-col size="2">
+            <a href="https://api.whatsapp.com/send?phone={{phone}}">
+                <div class="mail-icon">
+                    <ion-icon class="icon-set" name="mail-outline"></ion-icon>
+                </div>
+            </a>
+        </ion-col>
+        <ion-col size="2">
+            <a href="tel:{{phone}}">
+                <div class="call-icon">
+                    <ion-icon class="icon-set" name="call-outline"></ion-icon>
+                </div>
+            </a>
+        </ion-col>
+    </ion-row>
+    <ion-row>
+        <ion-col size="12">
+            <p class="title-small margin-remove">Status</p>
+            <p class="title margin-minus margin-remove red" *ngIf="status==='Pending'">Pending</p>
+        </ion-col>
+        <ion-col size="12" class="margin-minus">
+            <p class="title-small margin-remove">Tipe Service</p>
+            <p class="title margin-minus margin-remove">{{service_type}}</p>
+        </ion-col>
+        <ion-col size="6" class="margin-minus">
+            <p class="title-small margin-remove">Tanggal Order</p>
+            <p class="title margin-minus margin-remove">{{date_order}}</p>
+        </ion-col>
+        <ion-col size="6" class="margin-minus">
+            <p class="title-small margin-remove">Durasi</p>
+            <p class="title margin-minus margin-remove">{{qty}} Jam</p>
+        </ion-col>
+        <ion-col size="12" class="margin-minus">
+            <p class="title-small margin-remove">Alamat</p>
+            <p class="title margin-minus margin-remove">{{alamat}}</p>
+            <p>
+                <a class="btn-manual" (click)="goMap(latitude,longitude)">Lihat Peta</a>
+            </p>
+        </ion-col>
+    </ion-row>
+    <ion-button *ngIf="orderDetail" expand="block" shape="round" (click)="Varify()">Verifikasi Lokasi</ion-button>
+</ion-content>

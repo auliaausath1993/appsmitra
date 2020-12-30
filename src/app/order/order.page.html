@@ -1,0 +1,46 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+    <span slot="start">
+      <img class="icon-header" src="../../assets/images/tes-icon.png"/>
+    </span>
+    <ion-title>EZKlin Mitra</ion-title>
+    </ion-toolbar>
+</ion-header>
+  
+<ion-content [fullscreen]="true">
+    <ion-row>
+        <ion-col class="ion-no-padding">
+            <ion-list>
+             <ion-label *ngIf="!data || data.length === 0">
+                 <p style="text-align: center;">Data tidak tersedia.</p>
+             </ion-label>
+             <ion-item *ngFor="let item of data" (click)="goDetail(item.order_id)">
+                <ion-avatar slot="start">
+                    <img src="../../assets/images/book-service.png">
+                </ion-avatar>
+                <ion-label>
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col size="12" class="ion-no-padding">
+                                <h3 style="font-weight: bold;">{{item.number}}</h3>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col size="12" class="ion-no-padding">
+                                <h3>{{item.qty}} {{item.unit}}</h3>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col size="12" class="ion-no-padding">
+                                <h3>{{item.schedule}}</h3>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-label>
+             </ion-item>
+            </ion-list>
+         </ion-col>
+    </ion-row>
+</ion-content>
+  
+  
